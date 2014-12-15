@@ -1,8 +1,59 @@
-<div id="user_nav">
-  <% if current_user %>
-    Welcome, <%= current_user.name %>!
-    <%= link_to "Sign Out", signout_path %>
-  <% else %>
-    <%= link_to "Sign in with Twitter", "/auth/twitter" %>
-  <% end %>
+<nav class="navbar navbar-default" role="navigation" style="background-color:rgba(0,0,0,0.0);font-family: lato; padding-top: 5px; padding-bottom: 10px;border:none;border-radius:0px;box-shadow: 0px 1px 0px 0px">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" style="border: black 1px solid" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar" style="background-color: black"></span>
+				<span class="icon-bar" style="background-color: black"></span>
+				<span class="icon-bar" style="background-color: black"></span>
+			</button>
+			<a class="navbar-brand" href="/" style="font-size: 30px; color: black; margin-top: 0px"><strong style="color:black;margin-left:15px"><img src="https://s3.amazonaws.com/unmute/icon_400.png" style="margin-top: -5px;width: 50px;background-color:white;border-radius:50%">Feature Hunt</strong></a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<!-- <li>Something</li> -->
+			</ul>
+		</li>
+	</ul>
+      <!-- <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Browse openings">
+        </div>
+        <button type="submit" class="btn btn-default">Browse</button>
+    </form> -->
+    <ul class="nav navbar-nav">
+    	<!-- <li>Something</li> -->
+    </ul>
+</li>
+</ul>
+
+<% if current_user %>
+<ul class="nav navbar-nav navbar-right">
+	<li class="dropdown" style="margin-top:10px">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Anonymous <span class="caret"></span></a>
+		<ul class="dropdown-menu" role="menu">
+			<!-- <li><a href="/posts">Browse</a></li> -->
+			<!-- <li><a href="/posts/new">+ New Post</a></li> -->
+			<!-- <li><a href="/users/<%= current_user.id %>">My Profile</a></li> -->
+			<li class="divider"></li>
+			<li></li>
+			<!-- <li><a href="/users/<%= current_user.id %>/edit">Edit Profile</a></li> -->
+			<li><%= link_to "Sign Out", signout_path %></li>
+		</ul>
+	</li>
+</ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+<% else %>
+<div class="nav navbar-nav navbar-right">
+	<button onclick=window.location='/auth/twitter' class="btn btn-info" style="margin-top:15px; margin-right: 15px;font-size:16px ">Start writing</button>
+	<button onclick=window.location='/' class="btn btn-default" style="margin-top:15px;font-size:16px">Browse</button>
 </div>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+<% end %>

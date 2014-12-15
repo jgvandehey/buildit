@@ -1,5 +1,7 @@
 Buildit::Application.routes.draw do
   
+  resources :features
+
   root :to => 'pages#home'
   match "/auth/:provider/callback" => "sessions#create"
 match "/signout" => "sessions#destroy", :as => :signout
