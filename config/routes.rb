@@ -1,11 +1,18 @@
 Buildit::Application.routes.draw do
-  
-  resources :features
 
-  root :to => 'pages#home'
+
+  root to: 'features#index'
+
+  resources :users
+  resources :features do
+    member { post :vote }
+  end
+  
   match "/auth/:provider/callback" => "sessions#create"
   match "/signout" => "sessions#destroy", :as => :signout
+  match 'users/:id' => 'users#show', as: :user
   get "pages/home"
+  get "users/show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

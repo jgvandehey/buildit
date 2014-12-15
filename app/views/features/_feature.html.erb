@@ -3,6 +3,8 @@
         <td><%= feature.description %></td>
         <td><%= feature.company %></td>
         <td><%= feature.priority %></td>
+        <td><%= pluralize feature.reputation_for(:votes).to_i, "vote" %></td>
+        <td><%= link_to "up", vote_feature_path(feature, type: "up"), method: "post" %></td>
         <td><%= link_to 'Show', feature %></td>
         <% if current_user == feature.user %>
         <td><%= link_to 'Edit', edit_feature_path(feature) %></td>

@@ -9,6 +9,7 @@ gem 'aws-sdk'
 gem 'awesome_print', require: 'ap'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'activerecord-reputation-system', require: 'reputation_system'
 
 group :production do
 	gem 'pg'

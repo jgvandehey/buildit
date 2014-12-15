@@ -2,7 +2,8 @@ class FeaturesController < ApplicationController
   # GET /features
   # GET /features.json
   def index
-    @features = Feature.all
+    # @features = Feature.all
+    @features = Feature.find_with_reputation(:votes, :all, order: 'votes desc')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -19,6 +20,13 @@ class FeaturesController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @feature }
     end
+  end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @feature = Feature.find(params[:id])
+    @feature.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting!"
   end
 
   # GET /features/new
