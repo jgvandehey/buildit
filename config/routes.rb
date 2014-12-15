@@ -4,7 +4,7 @@ Buildit::Application.routes.draw do
 
   root :to => 'pages#home'
   match "/auth/:provider/callback" => "sessions#create"
-match "/signout" => "sessions#destroy", :as => :signout
+  match "/signout" => "sessions#destroy", :as => :signout
   get "pages/home"
 
   # The priority is based upon order of creation:

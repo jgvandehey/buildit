@@ -24,7 +24,7 @@ class FeaturesController < ApplicationController
   # GET /features/new
   # GET /features/new.json
   def new
-    @feature = Feature.new
+    @feature = current_user.features.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +34,13 @@ class FeaturesController < ApplicationController
 
   # GET /features/1/edit
   def edit
-    @feature = Feature.find(params[:id])
+    @feature = current_user.features.find(params[:id])
   end
 
   # POST /features
   # POST /features.json
   def create
-    @feature = Feature.new(params[:feature])
+    @feature = current_user.features.new(params[:feature])
 
     respond_to do |format|
       if @feature.save
@@ -56,7 +56,7 @@ class FeaturesController < ApplicationController
   # PUT /features/1
   # PUT /features/1.json
   def update
-    @feature = Feature.find(params[:id])
+    @feature = current_user.features.find(params[:id])
 
     respond_to do |format|
       if @feature.update_attributes(params[:feature])
@@ -72,7 +72,7 @@ class FeaturesController < ApplicationController
   # DELETE /features/1
   # DELETE /features/1.json
   def destroy
-    @feature = Feature.find(params[:id])
+    @feature = current_user.features.find(params[:id])
     @feature.destroy
 
     respond_to do |format|

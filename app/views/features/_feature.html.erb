@@ -4,6 +4,8 @@
         <td><%= feature.company %></td>
         <td><%= feature.priority %></td>
         <td><%= link_to 'Show', feature %></td>
+        <% if current_user == feature.user %>
         <td><%= link_to 'Edit', edit_feature_path(feature) %></td>
         <td><%= link_to 'Destroy', feature, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
     </tr>
