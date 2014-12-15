@@ -10,6 +10,8 @@ gem 'awesome_print', require: 'ap'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'activerecord-reputation-system', require: 'reputation_system'
+gem 'paperclip', '~> 3.0'
+gem 'groupdate'
 
 group :production do
 	gem 'pg'

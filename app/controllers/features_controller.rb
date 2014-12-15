@@ -3,7 +3,10 @@ class FeaturesController < ApplicationController
   # GET /features.json
   def index
     # @features = Feature.all
-    @features = Feature.find_with_reputation(:votes, :all, order: 'votes desc')
+    # @features = Feature.find_with_reputation(:votes, :all, order: 'votes desc')
+    @features = Feature.group_by_day(:created_at).count
+    # @features = Feature.order("DATE(start_at)").group("DATE(start_at)").count
+    # @features_by_date = Feature.group_by_day(:created_at).reverse_order.count
 
     respond_to do |format|
       format.html # index.html.erb

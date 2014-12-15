@@ -1,13 +1,19 @@
+.site-content {
+  width: 800px;
+  margin: 0px auto ;
+  /*border: 1px solid black;*/
+}
+
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: "lato", verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: 'lato', verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
