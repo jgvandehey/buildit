@@ -1,20 +1,9 @@
 <div class="feature-date">Today</div>
+<%= render @features %>
+<br>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Company</th>
-                <th>Priority</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <%= render @features %>
-        </tbody>
-    </table>
-
-    <br />
-
-    <%= link_to 'New Feature', new_feature_path %>
+<div>
+	<form action="/features/new">
+		<input class="new-feature-button" type="submit" value="Post a feature">
+	</form>
+</div>
