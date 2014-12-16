@@ -94,11 +94,4 @@ class FeaturesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def days_ago_in_words(from_date, to_date, options={})
-    delta = (to_date - from_date).to_i
-    I18n.with_options :locale => options[:locale], :scope => :'datetime.distance_in_words' do |locale|
-      locale.t :x_days, :count => delta
-    end
-  end
 end

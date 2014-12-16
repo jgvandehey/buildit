@@ -3,17 +3,17 @@
 <div class="feature-date"><%= time_ago_in_words(day) %></div>
 <% for feature in @features_days[day] %>
 <div class="row feature-box">
-	<div class="col-xs-1 upvote-box">
-		<%= link_to content_tag(:i, "", class: "glyphicon glyphicon-arrow-up") + "", vote_feature_path(feature, type: "up"), method: "post" %><br>
-		<%= pluralize feature.reputation_for(:votes).to_i, "" %>
-	</div>
-	<div class="col-xs-9" style="margin-top:15px">
-		<!-- <a href="#feature" data-toggle="modal"><strong><%= feature.name %></strong> @ <%= feature.company %></a> -->
-		<a href="/features/<%= feature.id %>"><strong><%= feature.name %></strong> @ <%= feature.company %></a>
-	</div>
-	<div class="col-xs-2">
-		<%= image_tag User.find(feature.user_id).avatar(:medium), :style => 'border-radius: 50%; width: 50px; margin: 10px 10px 10px 50px' %>
-	</div>
+    <div class="col-xs-1 upvote-box">
+        <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-arrow-up") + "", vote_feature_path(feature, type: "up"), method: "post" %><br>
+        <%= pluralize feature.reputation_for(:votes).to_i, "" %>
+    </div>
+    <div class="col-xs-9" style="margin-top:15px">
+        <!-- <a href="#feature" data-toggle="modal"><strong><%= feature.name %></strong> @ <%= feature.company %></a> -->
+        <a href="/features/<%= feature.id %>"><strong><%= feature.name %></strong> @ <%= feature.company %></a>
+    </div>
+    <div class="col-xs-2">
+        <%= image_tag User.find(feature.user_id).avatar(:medium), :style => 'border-radius: 50%; width: 50px; margin: 10px 10px 10px 50px' %>
+    </div>
 </div>
 
 
@@ -21,27 +21,28 @@
 
 <!-- feature Modal -->
 <div class="modal fade" id="feature">
-	<div class="modal-dialog">
-		<div class="modal-content" style="border-radius: 0px">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h2 style="text-align: center; font-family: lato">Start giving & receiving feedback</h2>
-			</div>
-			<div class="modal-body">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border-radius: 0px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 style="text-align: center; font-family: lato">Start giving & receiving feedback</h2>
+            </div>
+            <div class="modal-body">
 
-				<!-- start form body -->
-				<div class="leads-modal">
+                <!-- start form body -->
+                <div class="leads-modal">
 
-					<%= feature.name %>
-					<%= feature.company %>
+                    <%= feature.name %>
+                    <%= feature.company %>
 
-				</div>
-				<!-- end form body -->
+                </div>
+                <!-- end form body -->
 
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 </div>
+
 
 <% end %>
 <% end %>

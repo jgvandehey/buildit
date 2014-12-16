@@ -11,8 +11,9 @@
 .feature-box {
 	font-family: lato;
 	font-size: 22px;
-	width: 100%;
-	border: none;
+	max-width: 100%;
+	min-width: 300px;
+	/*border: 1px solid black;*/
 	padding: 10px;
 }
 .feature-box:hover {
@@ -36,13 +37,15 @@
 }
 
 .upvote-box {
+	position:block;
 	font-family: lato;
-	font-size: 18px;
+	font-size: 16px;
 	padding: 5px;
-	/*width: 50px;
-	height: 75px;*/
+	margin-top:7px;
+	min-width: 50px;
+	max-width: 50px;
 	text-align: center;
-	/*border: 1px solid black;*/
+	box-shadow: 1px 1px 0px #737373;
 	border-radius: 5px;
 	background-color:rgba(237, 236, 235, 1.0);
 }
@@ -57,4 +60,9 @@
 .upvote-box a:hover {
 	background-color:rgba(237, 236, 235, 0.0);
 	color: rgba(253, 106, 101, 1.0);
+}
+
+#feature-box-name {
+
+
 }
