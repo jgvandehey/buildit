@@ -11,6 +11,20 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 	<!-- end google fonts -->
 
+
+	<!-- start Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-57707644-1', 'auto');
+		ga('send', 'pageview');
+
+	</script>
+	<!-- end Google Analytics -->
+
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script src="js/modernizr.js"></script>
@@ -19,16 +33,60 @@
 	<link rel="shortcut icon" href="https://s3.amazonaws.com/featurehunt/FeatureHunt.png">
 </head>
 <body>
-	<div class="container-fluid">
-		<%= render 'layouts/header' unless @disable_nav %>
+	
+	<%= render 'layouts/header' unless @disable_nav %>
 
 		<!-- <% flash.each do |name, msg| %>
 		<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
 		<% end %> -->
-		<div class="site-content" style="margin-bottom: 200px">
-			<%= yield %>
+		<div class="contents">
+			<div class="site-content">
+					<%= yield %>
+			</div>
+			<%= render 'layouts/footer' %>
 		</div>
-		<%= render 'layouts/footer' %>
-	</div>
+
+		<script>
+			var meny = Meny.create({
+    // The element that will be animated in from off screen
+    menuElement: document.querySelector( '.meny' ),
+
+    // The contents that gets pushed aside while Meny is active
+    contentsElement: document.querySelector( '.contents' ),
+
+    // The alignment of the menu (top/right/bottom/left)
+    position: 'left',
+
+    // The height of the menu (when using top/bottom position)
+    height: 200,
+
+    // The width of the menu (when using left/right position)
+    width: 260,
+
+    // The angle at which the contents will rotate to.
+    angle: 30,
+
+    // The mouse distance from menu position which can trigger menu to open.
+    threshold: 60,
+
+    // Width(in px) of the thin line you see on screen when menu is in closed position.
+    overlap: 8,
+
+    // The total time taken by menu animation.
+    transitionDuration: '0.5s',
+
+    // Transition style for menu animations
+    transitionEasing: 'ease',
+
+    // Gradient overlay for the contents
+    gradient: 'rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.00) 100%)',
+
+    // Use mouse movement to automatically open/close
+    mouse: true,
+
+    // Use touch swipe events to open/close
+    touch: true
+});
+</script>
 </body>
 </html>

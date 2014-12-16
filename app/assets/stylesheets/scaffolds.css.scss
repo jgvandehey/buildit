@@ -1,7 +1,12 @@
 .site-content {
-  width: 800px;
-  margin: 0px auto ;
+  max-width: 800px;
+  margin: 50px auto ;
+  min-height: 900px;
   /*border: 1px solid black;*/
+}
+.header-content {
+  max-width: 800px;
+  margin: 0px auto;
 }
 
 body {

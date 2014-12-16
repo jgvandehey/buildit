@@ -4,6 +4,8 @@ class FeaturesController < ApplicationController
   def index
     # @features = Feature.all
     @features = Feature.find_with_reputation(:votes, :all, order: 'votes desc')
+    @features_days = Feature.find_with_reputation(:votes, :all, order: 'votes desc').group_by { |f| f.created_at.beginning_of_day }
+    # @features_days = @features.group_by { |f| f.created_at.time }
     # @features = Feature.group_by{ |feature| feature.created_at.to_date }
     # @features = Feature.group_by_day(:created_at).count
     # @features = Feature.order("DATE(start_at)").group("DATE(start_at)").count
@@ -90,6 +92,13 @@ class FeaturesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to features_url }
       format.json { head :no_content }
+    end
+  end
+
+  def days_ago_in_words(from_date, to_date, options={})
+    delta = (to_date - from_date).to_i
+    I18n.with_options :locale => options[:locale], :scope => :'datetime.distance_in_words' do |locale|
+      locale.t :x_days, :count => delta
     end
   end
 end

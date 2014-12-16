@@ -1,3 +1,6 @@
+<% Feature.evaluated_by(:votes, @user).sort.reverse { |a,b| a.created_at <=> b.created_at }.each do |feature| %>
+<!-- Used this to order: http://stackoverflow.com/questions/11875174/rails-ordering-from-within-a-view -->
+
 <div class="row feature-box">
     <div class="col-xs-1 upvote-box">
         <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-arrow-up") + "", vote_feature_path(feature, type: "up"), method: "post" %><br>
@@ -38,3 +41,6 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 </div>
+
+
+<% end %>
