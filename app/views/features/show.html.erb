@@ -10,9 +10,15 @@
             </div>
         </div>
     </div>
+    <div class="feature-shots">
+    Description
+    </div>
+    <div id="feature-description">
+    <%= @feature.description %>
+    </div>
     <% if @feature.shot1.present? %>
     <div class="feature-shots">
-        Feature shots <%=  %>
+        Feature shots
     </div>
     <div class="feature-shots">
         <%= image_tag @feature.shot1(:medium) %>
