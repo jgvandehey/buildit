@@ -10,7 +10,6 @@ gem 'awesome_print', require: 'ap'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'activerecord-reputation-system', require: 'reputation_system'
-gem 'paperclip', '~> 3.0'
 gem 'groupdate'
 
 group :production do
@@ -19,7 +18,6 @@ group :production do
 end
 
 group :development, :test do
-	gem 'awesome_print', require: 'ap'
 	gem 'sqlite3'
 	gem 'debugger'
 end
