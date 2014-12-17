@@ -1,13 +1,23 @@
-<div class="row">
-    <div class="span6 offset3">
-        <div class="well">
-            <p>
-              <%= @feature.description %>
-            </p>
-            <% if current_user == @feature.user %>
-            <%= link_to 'Edit', edit_feature_path(@feature) %>
-            <% end %> |
-            <%= link_to 'Back', features_path %>
+<div class="feature-show">
+    <div class="feature-header">
+        <div id="title">
+            <%= @feature.name %>  <% if current_user == @feature.user %><%= link_to '(edit)', edit_feature_path(@feature) %><% end %>
+            <div id="company">
+                <%= @feature.company %>
+            </div>
+            <div id="poster">
+                posted by: <a href="/users/<%= User.find(@feature.user_id).id %>"><%= User.find(@feature.user_id).nickname %></a> on <%= time_ago_in_words(@feature.created_at) %> ago
+            </div>
         </div>
     </div>
+    <% if @feature.shot1.present? %>
+    <div class="feature-shots">
+        Feature shots <%=  %>
+    </div>
+    <div class="feature-shots">
+        <%= image_tag @feature.shot1(:medium) %>
+        <%= image_tag @feature.shot2(:medium) %>
+        <%= image_tag @feature.shot3(:medium) %>
+    </div>
+    <% end %>
 </div>
