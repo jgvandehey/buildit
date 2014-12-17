@@ -5,7 +5,9 @@
 
 .feature-date {
 	font-family: lato;
-	font-size: 24px
+	font-size: 24px;
+	text-align: center;
+	margin: 10px auto;
 }
 
 .feature-box {
@@ -16,7 +18,7 @@
 	/*border: 1px solid black;*/
 	padding: 10px;
 	/*margin: 10px auto;*/
-	/*margin: 0 auto;*/
+	margin: 0 auto;
 	vertical-align: left;
 }
 .feature-box:hover {
@@ -43,7 +45,6 @@
 	/*border:1px solid black;*/
 	/*clear:both;*/
 	float: left;
-	/*position:block;*/
 	font-family: lato;
 	font-size: 16px;
 	padding: 5px;
@@ -94,6 +95,6 @@
 	border-radius: 50%; 
 	width: 50px; 
 	margin: 10px 10px 10px 100px;
-	display: inline-block;
+	/*display: inline-block;*/
 	float:right;
 }
