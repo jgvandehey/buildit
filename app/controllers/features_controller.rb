@@ -4,7 +4,7 @@ class FeaturesController < ApplicationController
   def index
     # @features = Feature.all
     @features = Feature.find_with_reputation(:votes, :all, order: 'votes desc')
-    @features_days = Feature.find_with_reputation(:votes, :all, order: 'votes desc').group_by { |f| f.created_at.beginning_of_day }
+    @features_days = Feature.find_with_reputation(:votes, :all, order: 'votes desc').group_by { |f| f.created_at.end_of_day }
     # @features_days = @features.group_by { |f| f.created_at.time }
     # @features = Feature.group_by{ |feature| feature.created_at.to_date }
     # @features = Feature.group_by_day(:created_at).count

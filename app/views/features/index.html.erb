@@ -1,55 +1,38 @@
-<!-- <div class="feature-date">Today</div> -->
-<% @features_days.each do |day, features| %>
-<div class="feature-date"><%= time_ago_in_words(day) %></div>
+<% @features_days.keys.sort.each do |day| %>
+<div class="feature-date">
+    <%= day.time.to_s(:humanized_ago) %>
+</div>
 <% for feature in @features_days[day] %>
-<div class="row feature-box">
-    <div class="col-xs-1 upvote-box">
-        <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-arrow-up") + "", vote_feature_path(feature, type: "up"), method: "post" %><br>
-        <%= pluralize feature.reputation_for(:votes).to_i, "" %>
-    </div>
-    <div class="col-xs-9" style="margin-top:15px">
-        <!-- <a href="#feature" data-toggle="modal"><strong><%= feature.name %></strong> @ <%= feature.company %></a> -->
-        <a href="/features/<%= feature.id %>"><strong><%= feature.name %></strong> @ <%= feature.company %></a>
-    </div>
-    <div class="col-xs-2">
-        <%= image_tag User.find(feature.user_id).avatar(:medium), :style => 'border-radius: 50%; width: 50px; margin: 10px 10px 10px 50px' %>
-    </div>
-</div>
-
-
-
-
-<!-- feature Modal -->
-<div class="modal fade" id="feature">
-    <div class="modal-dialog">
-        <div class="modal-content" style="border-radius: 0px">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 style="text-align: center; font-family: lato">Start giving & receiving feedback</h2>
-            </div>
-            <div class="modal-body">
-
-                <!-- start form body -->
-                <div class="leads-modal">
-
-                    <%= feature.name %>
-                    <%= feature.company %>
-
-                </div>
-                <!-- end form body -->
-
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-</div>
-
-
+<table class="feature-box">
+    <tr>
+        <td rowspan="2" id="upvote-box">
+            <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-arrow-up") + "", vote_feature_path(feature, type: "up"), method: "post" %>
+            <br>
+            <%= pluralize feature.reputation_for(:votes).to_i, "" %>
+        </td>
+        <td>
+            <table>
+                <tr>
+                <td id="box-name">
+                        <!-- <a href="#feature" data-toggle="modal"><strong><%= feature.name %></strong> @ <%= feature.company %></a> -->
+                        <a href="/features/<%= feature.id %>">
+                            <%= h truncate(feature.name, :length => 50) %>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="box-company">
+                        <a href="#">
+                            <%= feature.company %>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td rowspan="2" id="box-image">
+            <%= image_tag User.find(feature.user_id).avatar(:medium) %>
+        </td>
+    </tr>
+</table>
 <% end %>
 <% end %>
-<br>
-
-<div>
-	<form action="/features/new">
-		<input class="new-feature-button" type="submit" value="Post a feature">
-	</form>
-</div>

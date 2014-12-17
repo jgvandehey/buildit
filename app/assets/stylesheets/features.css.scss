@@ -10,11 +10,14 @@
 
 .feature-box {
 	font-family: lato;
-	font-size: 22px;
+	/*font-size: 22px;*/
 	max-width: 100%;
-	min-width: 300px;
+	/*min-width: 100%;*/
 	/*border: 1px solid black;*/
 	padding: 10px;
+	/*margin: 10px auto;*/
+	/*margin: 0 auto;*/
+	vertical-align: left;
 }
 .feature-box:hover {
 	background-color: rgba(255, 105, 97, .1);
@@ -36,33 +39,61 @@
 	font-size: 18px;
 }
 
-.upvote-box {
-	position:block;
+#upvote-box {
+	/*border:1px solid black;*/
+	/*clear:both;*/
+	float: left;
+	/*position:block;*/
 	font-family: lato;
 	font-size: 16px;
 	padding: 5px;
-	margin-top:7px;
-	min-width: 50px;
-	max-width: 50px;
+	margin-top:10px;
+	margin-left: 10px;
+	margin-right: 0px;
+	width: 50px;
 	text-align: center;
 	box-shadow: 1px 1px 0px #737373;
 	border-radius: 5px;
 	background-color:rgba(237, 236, 235, 1.0);
 }
 
-.upvote-box a:visited {
+#upvote-box a:visited {
 	color: rgba(253, 106, 101, 1.0);
 }
 
-.upvote-box a {
+#upvote-box a {
 	color:rgba(155,155,155, .9);
 }
-.upvote-box a:hover {
+#upvote-box a:hover {
 	background-color:rgba(237, 236, 235, 0.0);
 	color: rgba(253, 106, 101, 1.0);
 }
 
-#feature-box-name {
-
-
+#box-name {
+	font-size: 20px;
+	min-width: 375px;
+	/*min-width: 600px;*/
+	display: inline-block;
+	/*font-weight: bold;*/
+	margin-left: 15px;
+	margin-top: -10px;
+	/*border:1px solid black;*/
+}
+#box-company {
+	min-width: 300px;
+	display:inline-block;
+	/*border:1px solid black;*/
+	margin-left: 15px;
+	font-size: 18px;
+	color: #616161;
+}
+#box-company a {
+	color: #616161
+}
+#box-image img {
+	border-radius: 50%; 
+	width: 50px; 
+	margin: 10px 10px 10px 100px;
+	display: inline-block;
+	float:right;
 }

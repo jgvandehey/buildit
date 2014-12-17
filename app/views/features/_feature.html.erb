@@ -5,7 +5,7 @@
     </div>
     <div class="col-xs-9" style="margin-top:15px">
         <!-- <a href="#feature" data-toggle="modal"><strong><%= feature.name %></strong> @ <%= feature.company %></a> -->
-        <a href="/features/<%= feature.id %>"><strong><%= feature.name %></strong> @ <%= feature.company %></a>
+        <a href="/features/<%= feature.id %>"><strong><%= feature.name %></strong> <br> <%= feature.company %></a>
     </div>
     <div class="col-xs-2">
         <%= image_tag User.find(feature.user_id).avatar(:medium), :style => 'border-radius: 50%; width: 50px; margin: 10px 10px 10px 50px' %>

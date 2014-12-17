@@ -10,9 +10,17 @@
 
       <% else %>
       <img src="https://s3.amazonaws.com/featurehunt/FeatureHunt.png">
-      <li><%= link_to "Log in", "/auth/twitter"%></li>
-      <li><%= link_to "Sign in", "/auth/twitter"%></li>
-      <li>Browse</li>
+      <li>  
+        <form action="/auth/twitter">
+          <input class="menu-sign-in" type="submit" value="Sign in">
+        </form>
+      </li>
+      <li>
+        <form action="/auth/twitter">
+        <input class="menu-sign-up" type="submit" value="Sign up">
+        </form>
+      </li>
+      <li><%= link_to "+ Post Feature", '/auth/twitter' %></li>
       <% end %>
     </ul>
   </div>
