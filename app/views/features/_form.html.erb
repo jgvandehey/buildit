@@ -1,21 +1,40 @@
 <%= simple_form_for(@feature, html: { class: "form-horizontal"}) do |f| %>
-  <%= f.error_notification %>
+<%= f.error_notification %>
 
-  <%= f.input :name %>
-
-  <%= f.input :description %>
-
-  <%= f.input :company %>
-
-  <%= f.input :priority %>
-
-  <%= f.input :shot1, label: false %>
-
-  <%= f.input :shot2, label: false %>
-
-  <%= f.input :shot3, label: false %>
-
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
+<div class="feature-show">
+  <div class="feature-header" style="background-color: white">
+    <table>
+      <tr>
+        <td>
+          <div id="title">
+            <%= f.text_field :name, placeholder: "Enter a title here", class: "new-feature", :autocomplete => :off %>
+            <div id="company">
+              <%= f.text_field :company, placeholder: "What company or product (Ex: Spotify)", class: "new-feature", :autocomplete => :off %>
+            </div>
+            <div id="poster">
+            posted by <%= current_user.name %>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
-<% end %>
+  <div class="feature-shots">
+    Description
+  </div>
+  <div id="feature-description">
+    <%= f.text_field :description, placeholder: "Tell us a bit more about the idea", class: "new-feature", :id => "new-feature-description", :autocomplete => :off %>
+  </div>
+  <div class="feature-shots">
+    Add screenshots if you have them (up to 3)
+  </div>
+  <div class="feature-shots">
+    <%= f.input :shot1, label: false %>
+    <%= f.input :shot2, label: false %> 
+    <%= f.input :shot3, label: false %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, class: "new-feature-button" %>
+  </div>
+  <% end %>
+</div>

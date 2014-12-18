@@ -71,7 +71,7 @@
 }
 
 #box-name {
-	font-size: 20px;
+	font-size: 18px;
 	min-width: 375px;
 	/*min-width: 600px;*/
 	display: inline-block;
@@ -95,7 +95,7 @@
 #box-image img {
 	border-radius: 50%; 
 	width: 50px; 
-	margin: 10px 10px 10px 100px;
+	margin: 10px 10px 10px 10px;
 	/*display: inline-block;*/
 	float:right;
 }
@@ -159,4 +159,20 @@
 	font-size:18px;
 	color:black;
 	margin-left: 40px;
+}
+
+.new-feature {
+	width: 100%;
+	border: none;
+	resize: none;
+	color: black;
+	background-color: rgba(255, 105, 97, .0);
+}
+
+.new-feature:focus {
+    outline: none !important;
+}
+
+#new-feature-description {
+	color: black;
 }
