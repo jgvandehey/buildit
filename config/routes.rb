@@ -1,11 +1,16 @@
 Buildit::Application.routes.draw do
 
 
+  get "comments/index"
+
+  get "comments/new"
+
   root to: 'features#index'
 
   resources :users
   resources :features do
     member { post :vote }
+    resources :comments
   end
   
   match "/auth/:provider/callback" => "sessions#create"

@@ -21,6 +21,9 @@ class FeaturesController < ApplicationController
   # GET /features/1.json
   def show
     @feature = Feature.find(params[:id])
+    @commentable = @feature
+    @comments = @commentable.comments.reverse
+    @comment = Comment.new
 
     respond_to do |format|
       format.html # show.html.erb

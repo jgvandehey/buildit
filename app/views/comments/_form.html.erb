@@ -1,0 +1,22 @@
+
+<div class="feature-shots">
+	<%= form_for [@commentable, @comment] do |f| %>
+	<% if @comment.errors.any? %>
+	<div class="error_messages">
+		<h2>Please correct the following errors.</h2>
+		<ul>
+			<% @comment.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+	<div class="comment">
+		
+		<%= f.text_area :content, placeholder: "Say something nice about this idea", class: 'comment-form', :autocomplete => :off, :rows => 4 %>
+		
+	</div>
+	<%= f.submit 'Save Comment', :class => 'new-comment-button' %>
+	<% end %>
+
+</div>

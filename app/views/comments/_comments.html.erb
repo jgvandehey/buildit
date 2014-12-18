@@ -1,0 +1,29 @@
+<div class="comment-header">
+	Comments (<%= @comments.count %>)
+</div>
+<% @comments.each do |comment| %>
+<div class="comment">
+	<table>
+		<tr>
+			<td rowspan="4">
+				<%= image_tag User.find(comment.user_id).avatar.url(:medium) %>
+			</td>
+		</tr>
+		<tr>
+			<td id="nickname">
+				<%= User.find(comment.user_id).nickname %> | <%= h truncate(User.find(comment.user_id).bio, :length => 50) %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="comment-body"><%= comment.content %> </div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="comment-date"><%= time_ago_in_words(comment.created_at) %> ago</div>
+			</td>
+		</tr>
+	</table>
+</div>
+<% end %>
