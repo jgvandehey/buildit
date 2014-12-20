@@ -14,6 +14,6 @@ Time::DATE_FORMATS[:humanized_ago]  = ->(time) do
   when time.between?(st - 6.day, nd - 2.day)
     time.strftime('%a %H:%M')
   else 
-    time.strftime('%B-%d-%y')
+    time.strftime('%B %d %Y')
   end
 end
