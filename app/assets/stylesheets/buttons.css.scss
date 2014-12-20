@@ -18,17 +18,16 @@
 .new-comment-button {
 	font-family: Lato;
 	font-size: 24px;
-	width: 100%;
 	padding: 10px;
 	/*margin-bottom: 100px;*/
 	border: 2px solid rgba(253, 106, 101, 1.0);
-	background-color: white;
-	color: rgba(253, 106, 101, 1.0);
+	background-color: rgba(253, 106, 101, 1.0);
+	color: white;
 }
 
 .new-comment-button:hover {
-    background-color:rgba(253, 106, 101, 1.0);
-    color: white;
+    background-color:white;
+    color: rgba(253, 106, 101, 1.0);
     transition: .3s;
 }
 
