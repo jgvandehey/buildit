@@ -1,4 +1,4 @@
-<% @features_days.keys.sort_by.each do |day| %>
+<% @features_days.keys.sort.each do |day| %>
 <!-- If i add "sort_by" it seems to sort correctly on local but not on prod -->
 <div class="feature-date">
     <%= day.time.to_s(:humanized_ago) %>

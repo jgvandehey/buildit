@@ -39,7 +39,7 @@
 	font-size: 20px;
 	color: black;
 	line-height: 1em;
-	padding: 15px 0px 0px 0px;
+	padding: 20px 0px 0px 0px;
 	margin-left: 80px;
 	min-width: 280px;
 	/*overflow: hidden;*/
@@ -70,10 +70,11 @@
 	font-family: lato;
 	font-size: 16px;
 	padding: 5px;
-	margin-top:10px;
+	margin-top:15px;
 	margin-left: 10px;
 	margin-right: 0px;
 	width: 50px;
+	height: 50px;
 	text-align: center;
 	box-shadow: 1px 1px 0px #737373;
 	border-radius: 5px;
@@ -95,7 +96,7 @@
 #box-image img {
 	border-radius: 50%; 
 	width: 50px; 
-	margin: -40px 20px;
+	margin: -45px 20px;
 	/*display: inline-block;*/
 	float:right;
 }
