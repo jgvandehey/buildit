@@ -3,10 +3,10 @@
         <table>
             <tr>
                 <td id="upvote-box" style="margin: 5px 20px 0px 4px; height: 65px; padding: 15px">
-                    
-                        <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-arrow-up") + "", vote_feature_path(@feature, type: "up"), method: "post" %>
-                        <br>
-                        <%= pluralize @feature.reputation_for(:votes).to_i, "" %>
+
+                    <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-arrow-up") + "", vote_feature_path(@feature, type: "up"), method: "post" %>
+                    <br>
+                    <%= pluralize @feature.reputation_for(:votes).to_i, "" %>
 
                 </td>
                 <td>
@@ -16,33 +16,36 @@
                             <%= @feature.company %>
                         </div>
                         <div id="poster">
-                            posted by <a href="/users/<%= User.find(@feature.user_id).id %>"><%= User.find(@feature.user_id).nickname %></a> <%= time_ago_in_words(@feature.created_at) %> ago
-                        </div>
+                            posted by <a href="/users/<%= User.find(@feature.user_id).id %>"><%= User.find(@feature.user_id).nickname %></a> <%= time_ago_in_words(@feature.created_at) %> ago <% if @feature.priority.present? %>as a <button type="button" onclick=window.location='#' class="feature-priority">
+                            <%= @feature.priority %>
+                        </button>
+                        <% end %>
                     </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="feature-shots">
-        Description
-    </div>
-    <div id="feature-description">
-        <%= @feature.description %>
-    </div>
-    <% if @feature.shot1.present? %>
-    <div class="feature-shots">
-        Feature shots
-    </div>
-    <div class="feature-shots">
-        <%= image_tag @feature.shot1(:medium) %>
-        <% if @feature.shot2.present? %>
-        <%= image_tag @feature.shot2(:medium) %>
-        <% end %>
-        <% if @feature.shot3.present? %>
-        <%= image_tag @feature.shot3(:medium) %>
-        <% end %>
-    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="feature-shots">
+    Description
+</div>
+<div id="feature-description">
+    <%= @feature.description %>
+</div>
+<% if @feature.shot1.present? %>
+<div class="feature-shots">
+    Feature shots
+</div>
+<div class="feature-shots">
+    <%= image_tag @feature.shot1(:medium) %>
+    <% if @feature.shot2.present? %>
+    <%= image_tag @feature.shot2(:medium) %>
     <% end %>
-    <%= render :partial => "comments/form" %>
-    <%= render :partial => "comments/comments" %>
+    <% if @feature.shot3.present? %>
+    <%= image_tag @feature.shot3(:medium) %>
+    <% end %>
+</div>
+<% end %>
+<%= render :partial => "comments/form" %>
+<%= render :partial => "comments/comments" %>
 </div>
