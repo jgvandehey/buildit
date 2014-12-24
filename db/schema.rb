@@ -103,7 +103,6 @@ ActiveRecord::Schema.define(:version => 20141223012255) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "nickname"
-    t.text     "bio"
   end
 
 end
