@@ -48,6 +48,7 @@
 #show-title a {
 	background-color: rgba(255, 105, 97, .0);
 	text-decoration: none;
+	color: black;
 }
 
 #show-title a:hover {
@@ -76,7 +77,7 @@
 	/*color: black;*/
 }
 
-#upvote-box {
+/*#upvote-box {
 	float: left;
 	font-family: lato;
 	font-size: 16px;
@@ -102,8 +103,36 @@
 #upvote-box a:hover {
 	background-color:rgba(237, 236, 235, 0.0);
 	color: rgba(253, 106, 101, 1.0);
+}*/
+
+#upvote-box {
+	float: left;
+	font-family: lato;
+	font-size: 16px;
+	padding: 5px;
+	margin-top:15px;
+	margin-left: 10px;
+	margin-right: 0px;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	box-shadow: 1px 1px 1px rgba(253, 106, 101, 1.0);
+	border: 1px solid rgba(253, 106, 101, 1.0);
+	border-radius: 5px;
+	background-color:white;
 }
 
+#upvote-box a:visited {
+	color: rgba(253, 106, 101, 1.0);
+}
+
+#upvote-box a {
+	color:rgba(155,155,155, .9);
+}
+#upvote-box a:hover {
+	background-color:rgba(237, 236, 235, 0.0);
+	color: rgba(253, 106, 101, 1.0);
+}
 #box-image img {
 	border-radius: 50%; 
 	width: 50px; 
