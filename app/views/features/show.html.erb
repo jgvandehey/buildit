@@ -13,7 +13,9 @@
                     <div id="title">
                         <%= @feature.name %>  <% if current_user == @feature.user %><%= link_to '(edit)', edit_feature_path(@feature) %><% end %>
                         <div id="company">
-                            <%= @feature.company %>
+                            <% Company.find(@feature.company_ids).each do |c| %> 
+                            <a href="/companies/<%= c.id %>" target="_blank"><%= c.name %></a>
+                            <% end %>
                         </div>
                         <div id="poster">
                             posted by <a href="/users/<%= User.find(@feature.user_id).id %>"><%= User.find(@feature.user_id).nickname %></a> <%= time_ago_in_words(@feature.created_at) %> ago <% if @feature.priority.present? %>as a <button type="button" onclick=window.location='#' class="feature-priority">

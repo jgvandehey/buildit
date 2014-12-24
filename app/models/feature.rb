@@ -1,5 +1,5 @@
 class Feature < ActiveRecord::Base
-  attr_accessible :company, :description, :name, :priority, :shot1, :shot2, :shot3
+  attr_accessible :company, :description, :name, :priority, :shot1, :shot2, :shot3, :company_ids
   belongs_to :user
   validates :user_id, presence: true
   has_reputation :votes, source: :user, aggregated_by: :sum
@@ -7,4 +7,6 @@ class Feature < ActiveRecord::Base
   has_attached_file :shot2, styles: { medium: "100%"}
   has_attached_file :shot3, styles: { medium: "100%"}
   has_many :comments, as: :commentable
+  has_many :prioritizations
+  has_many :companies, :through => :prioritizations
 end

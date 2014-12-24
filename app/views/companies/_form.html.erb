@@ -1,0 +1,15 @@
+<%= simple_form_for(@company, html: { class: "form-horizontal"}) do |f| %>
+<%= f.error_notification %>
+
+
+
+<%= f.text_field :name, placeholder: "Company name", class: "new-feature", :autocomplete => :off %>
+
+<%= f.text_field :website_url, placeholder: "Website URL", class: "new-feature", :autocomplete => :off %>
+
+<%= f.text_field :twitter_nickname, placeholder: "twitter_handle (no @ symbol)", class: "new-feature", :id => "new-feature-description", :autocomplete => :off %>
+
+<div class="form-actions">
+  <%= f.button :submit, class: "new-feature-button" %>
+</div>
+<% end %>

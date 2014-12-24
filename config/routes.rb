@@ -6,7 +6,8 @@ Buildit::Application.routes.draw do
   get "comments/new"
 
   root to: 'features#index'
-
+  
+  resources :companies
   resources :users
   resources :features do
     member { post :vote }

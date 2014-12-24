@@ -1,5 +1,23 @@
-<div class="feature-date">Your likes</div>
+<% if current_user == @user %>
+
+<div class="feature-date">
+	Your likes
+</div>
 <%= render :partial => 'features/upvoted' %>
 
-<div class="feature-date">Your features</div>
-  <%= render @features %>
+<div class="feature-date">
+	Your features
+</div>
+<%= render @features %>
+
+<% else %>
+<div class="feature-date">
+	<%= @user.name %>'s likes
+</div>
+<%= render :partial => 'features/upvoted' %>
+<div class="feature-date">
+	<%= @user.name %>'s features
+</div>
+<%= render @features %>
+
+<% end %>

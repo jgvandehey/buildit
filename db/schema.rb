@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141223012255) do
+ActiveRecord::Schema.define(:version => 20141224080059) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(:version => 20141223012255) do
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
+
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "website_url"
+    t.string   "twitter_nickname"
+  end
+
+  create_table "companies_features", :id => false, :force => true do |t|
+    t.integer "company_id"
+    t.integer "feature_id"
+  end
 
   create_table "features", :force => true do |t|
     t.string   "name"
@@ -47,6 +60,13 @@ ActiveRecord::Schema.define(:version => 20141223012255) do
   end
 
   add_index "features", ["user_id"], :name => "index_features_on_user_id"
+
+  create_table "prioritizations", :force => true do |t|
+    t.integer  "feature_id"
+    t.integer  "company_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "rs_evaluations", :force => true do |t|
     t.string   "reputation_name"
@@ -103,6 +123,7 @@ ActiveRecord::Schema.define(:version => 20141223012255) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "nickname"
+    t.text     "bio"
   end
 
 end
