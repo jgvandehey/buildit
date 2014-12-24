@@ -5,21 +5,21 @@
 
 <%= f.text_field :name, placeholder: "What's your idea?", class: "new-feature", :autocomplete => :off %>
 
-<%= f.association :companies, :as => :collection_select, collection: Company.all, :input_html => { :class => "priority-selector" }, :label => false, prompt: "Company" %> 
+<%= f.association :companies, :as => :collection_select, collection: Company.all.sort! { |a,b| a.name.downcase <=> b.name.downcase }, :input_html => { :class => "priority-selector" }, :label => false, prompt: "Company" %> 
 
 <%= f.text_field :description, placeholder: "Tell us a bit more about the idea", class: "new-feature", :id => "new-feature-description", :autocomplete => :off %>
 
 <%= f.input :priority, :collection => ['Bug','Feature','Redesign'], :label => false, :input_html => { :class => "priority-selector" }, :label => false, prompt: "Category" %>
 
 <div class="new-feature">
-Add screenshots if you have them (up to 3)
+	Add screenshots if you have them (up to 3)
 
 
-<%= f.input :shot1, label: false %>
-<%= f.input :shot2, label: false %> 
-<%= f.input :shot3, label: false %>
+	<%= f.input :shot1, label: false %>
+	<%= f.input :shot2, label: false %> 
+	<%= f.input :shot3, label: false %>
 </div>
 <div class="form-actions">
-  <%= f.button :submit, class: "new-feature-button" %>
+	<%= f.button :submit, class: "new-feature-button" %>
 </div>
 <% end %>
