@@ -1,5 +1,5 @@
 <div class="feature-date">
-Features for <%= @company.name %>
+	Features for <%= @company.name %>
 </div>
 
 <% @features.each do |feature| %>
@@ -12,13 +12,15 @@ Features for <%= @company.name %>
 	<div id="show-title">
 		<a href="/features/<%= feature.id %>"><%= feature.name %></a>
 		<div id="show-company">
-			<%= feature.company %>
+			<% Company.find(feature.company_ids).each do |c| %> 
+			<a href="/companies/<%= c.id %>" target="_blank"><%= c.name %></a>
+			<% end %>
 		</div>
 	</div>
 
-	<div id="box-image">
+	<!-- <div id="box-image">
 		<%= image_tag User.find(feature.user_id).avatar(:medium) %>
-	</div>
+	</div> -->
 
 </div>
 <% end %>
