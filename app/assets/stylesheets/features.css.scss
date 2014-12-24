@@ -63,6 +63,18 @@
 	color: gray;
 	font-size: 18px;
 }
+#show-company a {
+	background-color: rgba(255, 105, 97, .0);
+	text-decoration: none;
+}
+#show-company a:hover {
+	color: rgba(255, 105, 97, 1.0);
+}
+#show-company a:visited {
+	background-color: rgba(255, 105, 97, .0);
+	text-decoration: none;
+	/*color: black;*/
+}
 
 #upvote-box {
 	/*border:1px solid black;*/

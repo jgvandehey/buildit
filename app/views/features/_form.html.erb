@@ -5,6 +5,8 @@
 
 <%= f.text_field :name, placeholder: "What's your idea?", class: "new-feature", :autocomplete => :off %>
 
+<%= f.association :companies, :as => :collection_select, collection: Company.where(Company.arel_table[:id]), :input_html => { :class => "priority-selector" }, :label => false, prompt: "Company" %> 
+
 <%= f.text_field :description, placeholder: "Tell us a bit more about the idea", class: "new-feature", :id => "new-feature-description", :autocomplete => :off %>
 
 <%= f.input :priority, :collection => ['Bug','Feature','Redesign'], :label => false, :input_html => { :class => "priority-selector" }, :label => false, prompt: "Category" %>
