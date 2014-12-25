@@ -1,35 +1,11 @@
-<% @features_days.keys.sort { |x,y| y <=> x }.each do |day| %>
-<!-- If i add "sort_by" it seems to sort correctly on local but not on prod -->
-<div class="feature-date">
-    <%= day.time.to_s(:humanized_ago) %>
-</div>
-<% for feature in @features_days[day] %>
-<div class='feature-box'>
-    <div id="upvote-box">
-        <%= link_to content_tag(:i, "", class: "glyphicon glyphicon-arrow-up") + "", vote_feature_path(feature, type: "up"), method: "post" %>
-        <br>
-        <%= pluralize feature.reputation_for(:votes).to_i, "" %>
-    </div>
-    <div id="show-title">
-        <a href="/features/<%= feature.id %>"><%= feature.name %></a>
-        <div id="show-company">
-            <% Company.find(feature.company_ids).each do |c| %> 
-            <a href="/companies/<%= c.id %>" target="_blank"><%= c.name %></a>
-            <% end %>
-        </div>
-    </div>
+<% if current_user %>
 
-    <!-- <div id="box-image">
-        <%= image_tag User.find(feature.user_id).avatar(:medium) %>
-    </div> -->
+<%= render 'indexsignedin' %>
 
-</div>
+<!-- begin user not signed in -->
+<% else %>
+
+<%= render 'indexsignedout' %>
+
+<!-- end user not signed in -->
 <% end %>
-<% end %>
-<br>
-
-<div>
-   <form action="/features/new">
-      <input class="new-feature-button" type="submit" value="Post a feature">
-  </form>
-</div>

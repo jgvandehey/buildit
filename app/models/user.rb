@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	attr_accessible :name, :provider, :uid, :avatar
+	attr_accessible :name, :provider, :uid, :avatar, :email, :bio
 	has_many :features, :dependent => :destroy
 	has_reputation :votes, source: {reputation: :votes, of: :features}, aggregated_by: :sum
 	has_many :evaluations, class_name: "RSEvaluation", as: :source
