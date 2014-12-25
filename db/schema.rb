@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141224080059) do
+ActiveRecord::Schema.define(:version => 20141225213348) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -26,10 +26,15 @@ ActiveRecord::Schema.define(:version => 20141224080059) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "website_url"
     t.string   "twitter_nickname"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "image_remote_url"
   end
 
   create_table "companies_features", :id => false, :force => true do |t|

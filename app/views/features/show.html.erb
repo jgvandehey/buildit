@@ -39,7 +39,7 @@
     Feature shots
 </div>
 <div class="feature-shots">
-    <%= image_tag @feature.shot1(:medium) %>
+    <%= image_tag @feature.shot1(:medium), class: 'fancybox' %>
     <% if @feature.shot2.present? %>
     <%= image_tag @feature.shot2(:medium) %>
     <% end %>

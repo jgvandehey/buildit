@@ -9,6 +9,12 @@
 
 <%= f.text_field :twitter_nickname, placeholder: "twitter_handle (no @ symbol)", class: "new-feature", :id => "new-feature-description", :autocomplete => :off %>
 
+<div class="new-feature">
+	Profile picture
+	<%= f.input :avatar, label: false %>
+	<%= f.input :image_remote_url, label: "or enter a URL" %>
+</div>
+
 <div class="form-actions">
   <%= f.button :submit, class: "new-feature-button" %>
 </div>

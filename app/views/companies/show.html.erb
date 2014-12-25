@@ -1,6 +1,28 @@
-<div class="feature-date">
-	Features for <%= @company.name %>
+<div class="feature-show">
+	<div class="feature-header">
+		<table>
+			<tr>
+				<td>
+					<%= image_tag @company.avatar(:small) %>
+				</td>
+				<td>
+					<div id="title" style="margin-left:20px">
+						<a href="<%= @company.website_url %>" target="_blank" style="font-size: 28px"><%= @company.name %></a>
+						<div id="company">
+							<% @features.each do |feature| %><%= Company.find(feature.company_ids).count %><% end %> features
+						</div>
+						<div id="poster">
+
+							
+
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>
+<br>
 
 <% @features.each do |feature| %>
 <div class='feature-box'>
@@ -17,10 +39,6 @@
 			<% end %>
 		</div>
 	</div>
-
-	<!-- <div id="box-image">
-		<%= image_tag User.find(feature.user_id).avatar(:medium) %>
-	</div> -->
 
 </div>
 <% end %>

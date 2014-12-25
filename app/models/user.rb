@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	has_reputation :votes, source: {reputation: :votes, of: :features}, aggregated_by: :sum
 	has_many :evaluations, class_name: "RSEvaluation", as: :source
 	has_many :comments, as: :commentable
-	has_attached_file :avatar, :styles => { :header => "800x400#", :medium => "300x300#", :thumb => "100x100#" }, :default_url => "https://s3.amazonaws.com/unmute/icon_400.png"  
+	has_attached_file :avatar, :styles => { :header => "800x400#", :medium => "300x300#", :thumb => "100x100#" }, :default_url => "https://s3.amazonaws.com/featurehunt/FeatureHunt.png"  
 
 
 	def self.create_with_omniauth(auth)
