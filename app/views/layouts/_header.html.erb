@@ -1,4 +1,4 @@
-  <div class="meny">
+<!--   <div class="meny">
     <ul>
       <% if current_user %>
       <%= image_tag current_user.avatar(:medium) %>
@@ -26,4 +26,33 @@
     </ul>
   </div>
 
-  
+-->
+
+
+<ul class="navigation">
+  <% if current_user %>
+  <%= image_tag current_user.avatar(:thumb) %>
+  <li><%= current_user.nickname %> (<%= current_user.reputation_for(:votes).to_i %>)</li>
+  <li><%= link_to "Today's Features", "/features" %></li>
+  <li><%= link_to "Companies", "/companies" %></li>
+  <li><%= link_to "My Profile", current_user %></li>
+  <li><%= link_to "+ Post Feature", '/features/new' %></li>
+  <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+  <% else %>
+  <img src="https://s3.amazonaws.com/featurehunt/FeatureHunt.png">
+  <li>  
+    <form action="/auth/twitter">
+      <input class="menu-sign-in" type="submit" value="Sign in">
+    </form>
+  </li>
+  <li>
+    <form action="/auth/twitter">
+      <input class="menu-sign-up" type="submit" value="Sign up">
+    </form>
+  </li>
+  <li><%= link_to "+ Post Feature", '/auth/twitter' %></li>
+  <% end %>
+</ul>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger"></label>

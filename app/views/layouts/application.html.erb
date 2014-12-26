@@ -47,15 +47,19 @@
 		<!-- <% flash.each do |name, msg| %>
 		<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
 		<% end %> -->
-		<div class="contents">
-			<div class="site-content">
-				<%= yield %>
+		<!-- <div class="contents">
+		<div class="site-content"> -->
+			<div class="site-wrap">
+				<div class="site-content">
+					<%= yield %>
+				</div>
 			</div>
+			<!-- </div> -->
 			<%= render 'layouts/footer' %>
-		</div>
+			<!-- </div> -->f
 
-		<script>
-			var meny = Meny.create({
+			<script>
+				var meny = Meny.create({
     // The element that will be animated in from off screen
     menuElement: document.querySelector( '.meny' ),
 
