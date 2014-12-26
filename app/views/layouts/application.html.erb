@@ -43,88 +43,35 @@
 <body>
 	
 	<%= render 'layouts/header' unless @disable_nav %>
-
-		<!-- <% flash.each do |name, msg| %>
-		<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-		<% end %> -->
-		<!-- <div class="contents">
-		<div class="site-content"> -->
-			<div class="site-wrap">
-				<div class="site-content">
-					<%= yield %>
-				</div>
-			</div>
-			<!-- </div> -->
-			<%= render 'layouts/footer' %>
-			<!-- </div> -->f
-
-			<script>
-				var meny = Meny.create({
-    // The element that will be animated in from off screen
-    menuElement: document.querySelector( '.meny' ),
-
-    // The contents that gets pushed aside while Meny is active
-    contentsElement: document.querySelector( '.contents' ),
-
-    // The alignment of the menu (top/right/bottom/left)
-    position: 'left',
-
-    // The height of the menu (when using top/bottom position)
-    height: 200,
-
-    // The width of the menu (when using left/right position)
-    width: 260,
-
-    // The angle at which the contents will rotate to.
-    angle: 30,
-
-    // The mouse distance from menu position which can trigger menu to open.
-    threshold: 60,
-
-    // Width(in px) of the thin line you see on screen when menu is in closed position.
-    overlap: 8,
-
-    // The total time taken by menu animation.
-    transitionDuration: '0.5s',
-
-    // Transition style for menu animations
-    transitionEasing: 'ease',
-
-    // Gradient overlay for the contents
-    gradient: 'rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.00) 100%)',
-
-    // Use mouse movement to automatically open/close
-    mouse: true,
-
-    // Use touch swipe events to open/close
-    touch: true
-});
-</script>
-
-
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/fancybox/1.3.4/jquery.fancybox-1.3.4.pack.min.js"></script>
-<script type="text/javascript">
-	$(function($){
-		var addToAll = false;
-		var gallery = true;
-		var titlePosition = 'inside';
-		$(addToAll ? 'img' : 'img.fancybox').each(function(){
-			var $this = $(this);
-			var title = $this.attr('title');
-			var src = $this.attr('data-big') || $this.attr('src');
-			var a = $('<a href="#" class="fancybox"></a>').attr('href', src).attr('title', title);
-			$this.wrap(a);
+	<div class="site-wrap">
+		<div class="site-content">
+			<%= yield %>
+		</div>
+		<%= render 'layouts/footer' %>
+	</div>
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/fancybox/1.3.4/jquery.fancybox-1.3.4.pack.min.js"></script>
+	<script type="text/javascript">
+		$(function($){
+			var addToAll = false;
+			var gallery = true;
+			var titlePosition = 'inside';
+			$(addToAll ? 'img' : 'img.fancybox').each(function(){
+				var $this = $(this);
+				var title = $this.attr('title');
+				var src = $this.attr('data-big') || $this.attr('src');
+				var a = $('<a href="#" class="fancybox"></a>').attr('href', src).attr('title', title);
+				$this.wrap(a);
+			});
+			if (gallery)
+				$('a.fancybox').attr('rel', 'fancyboxgallery');
+			$('a.fancybox').fancybox({
+				titlePosition: titlePosition
+			});
 		});
-		if (gallery)
-			$('a.fancybox').attr('rel', 'fancyboxgallery');
-		$('a.fancybox').fancybox({
-			titlePosition: titlePosition
-		});
-	});
-	$.noConflict();
-</script>
+		$.noConflict();
+	</script>
 </body>
 </html>
