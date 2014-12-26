@@ -8,7 +8,7 @@
         <%= pluralize feature.reputation_for(:votes).to_i, "" %>
     </div>
     <div id="show-title">
-        <a href="/features/<%= feature.id %>"><%= feature.name %></a>
+        <a href="/features/<%= feature.id %>"><%= h truncate(feature.name, length: 65) %></a>
         <div id="show-company">
                         <% Company.find(feature.company_ids).each do |c| %> 
             <a href="/companies/<%= c.id %>" target="_blank"><%= c.name %></a>
