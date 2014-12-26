@@ -1,21 +1,18 @@
-<h1>Listing companies</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="feature-date">
+  Companies on Feature Hunt
+</div>
 
 <% @companies.each do |company| %>
-  <tr>
-    <td><%= link_to 'Show', company %></td>
-    <td><%= link_to 'Edit', edit_company_path(company) %></td>
-    <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<div class='feature-box'>
+  <div class="company-index">
+    <%= image_tag company.avatar(:small) %>
+  </div>
+  <div id="show-title">
+    <a href="/companies/<%= company.id %>"><%= company.name %></a>
+    <div id="show-company">
+    </div>
+  </div>
+
+</div>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Company', new_company_path %>

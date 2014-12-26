@@ -4,6 +4,7 @@
       <%= image_tag current_user.avatar(:medium) %>
       <li><%= current_user.nickname %> (<%= current_user.reputation_for(:votes).to_i %>)</li>
       <li><%= link_to "Today's Features", "/features" %></li>
+      <li><%= link_to "Companies", "/companies" %></li>
       <li><%= link_to "My Profile", current_user %></li>
       <li><%= link_to "+ Post Feature", '/features/new' %></li>
       <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
