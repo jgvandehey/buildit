@@ -1,3 +1,5 @@
+<%= render 'tweetflash' %>
+
 <div class="feature-show">
     <div class="feature-header">
         <table>
@@ -13,8 +15,8 @@
                     <div id="title">
                         <%= @feature.name %>  <% if current_user == @feature.user %><%= link_to '(edit)', edit_feature_path(@feature) %><% end %>
                         <div id="company">
-                            <% Company.find(@feature.company_ids).each do |c| %> 
-                            <a href="/companies/<%= c.id %>" target="_blank"><%= c.name %></a>
+                            <% @company.each do |company| %>
+                            <a href="/companies/<%= company.id %>" target="_blank"><%= company.name %></a>
                             <% end %>
                         </div>
                         <div id="poster">

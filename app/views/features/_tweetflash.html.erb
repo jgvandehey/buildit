@@ -1,0 +1,11 @@
+<% if flash[:tweet_modal] %>
+<% @company.each do |company| %>
+<div class="tweet-flash">
+    <i class="glyphicon glyphicon-thumbs-up"></i> Your vote was saved
+    <br>
+    <br>
+    <button type="button" onclick=window.location="https://twitter.com/intent/tweet?text=.<%= company.twitter_nickname %>+I+just+voted+for+a+new+feature+on+FeatureHunt+via+featurehunt.com%2Ffeatures%2F<%= @feature.id %>" style="width:300px;height:50px;font-size:24px; background-color:white;color: rgba(159, 210, 250, 1.0); border: 1px solid white;border-radius: 100px">
+        Tell <%= company.name %> about it</button>
+    </div>
+    <% end %>
+	<% end %>

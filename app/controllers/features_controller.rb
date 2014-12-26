@@ -24,6 +24,7 @@ class FeaturesController < ApplicationController
     @commentable = @feature
     @comments = @commentable.comments.reverse
     @comment = Comment.new
+    @company = Company.find(@feature.company_ids)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,7 +36,7 @@ class FeaturesController < ApplicationController
     value = params[:type] == "up" ? 1 : -1
     @feature = Feature.find(params[:id])
     @feature.add_or_update_evaluation(:votes, value, current_user)
-    redirect_to :back, notice: "Thank you for voting!"
+    redirect_to :back, flash: { tweet_modal: true }
   end
 
   # GET /features/new
