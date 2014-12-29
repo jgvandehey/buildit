@@ -1,7 +1,14 @@
 <%= simple_form_for(@feature, html: { class: "form-horizontal"}) do |f| %>
 <%= f.error_notification %>
 
-
+<div class="feature-header">
+	<div id="title" style="text-align: center;line-height:1.2em">		
+		We think great product ideas can come from anyone. Share yours today.
+	</div>
+	<div id="poster" style="text-align:center; margin-top: 10px">
+		*if the company/app isn't on the list below, put it in the title/description, and we'll update it.
+	</div>
+</div>
 
 <%= f.text_field :name, placeholder: "What's your idea?", class: "new-feature", :autocomplete => :off %>
 
